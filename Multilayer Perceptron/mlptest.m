@@ -1,0 +1,12 @@
+function[z_test error]=mlptest(data,labels,v,w,m,c,l,struct)
+k=10;
+n=size(data,1);
+data=[ones(n,1) data];
+a1=-w*data';
+z1=1./(1+exp(a1));
+o1=v*[ones(1,n);z1];
+y1=exp(o1)./repmat(sum(exp(o1),1),k,1);
+[max1 index1]=max(y1);
+error=size(find(index1-1-labels'),2)./n;
+a3=-w*data';
+z_test=1./(1+exp(a3)); 

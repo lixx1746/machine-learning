@@ -1,0 +1,10 @@
+function [err_a_trn err_a_test err_b_trn err_b_test err_c_trn err_c_test]= Error_Rate(pre_a_trn,pre_a_test,pre_b_trn,pre_b_test,pre_c_trn,pre_c_test)
+trn_data=load('training_data.txt');
+test_data=load('test_data.txt');
+num_test=size(test_data,1);
+err_a_trn=sum(abs(pre_a_trn-trn_data(:,9)))/100;
+err_a_test=sum(abs(pre_a_test-test_data(:,9)))/num_test;
+err_b_trn=sum(abs(pre_b_trn-trn_data(:,9)))/100;
+err_b_test=sum(abs(pre_b_test-test_data(:,9)))/num_test;
+err_c_trn=sum(abs(pre_c_trn-trn_data(:,9)))/100;
+err_c_test=sum(abs(pre_c_test-test_data(:,9)))/num_test;
